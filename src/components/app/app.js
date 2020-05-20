@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
@@ -40,7 +40,7 @@ export default class App extends Component {
       <ErrorBoundry>
         <SwapiServiceProvider value={this.state.swapiService} >
           <Router>
-            <Fragment className="stardb-app">
+            <div className="stardb-app">
               <Header />
               <RandomPlanet />
 
@@ -60,7 +60,7 @@ export default class App extends Component {
                 <Route render={() => <h2 className='text-center'>Page not found</h2>} />
               </Switch>
 
-            </Fragment>
+            </div>
           </Router>
         </SwapiServiceProvider>
       </ErrorBoundry>
