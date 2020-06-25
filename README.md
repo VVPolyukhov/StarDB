@@ -8,6 +8,7 @@ Demo - https://vvpolyukhov.github.io/StarDB/
 
 **Stack:**
 
+* JavaScript ES6+
 * React
 * React Router
 * Bootstrap
