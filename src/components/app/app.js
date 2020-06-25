@@ -15,7 +15,7 @@ import { SwapiServiceProvider } from '../swapi-service-context';
 
 import './app.css';
 
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {HashRouter as Router, Switch, Route } from 'react-router-dom';
 import StarshipDetails from '../sw-components/starship-details';
 
 export default class App extends Component {

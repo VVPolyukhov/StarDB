@@ -1,5 +1,7 @@
 StarDB - Single Page Application 
 
+Demo - https://vvpolyukhov.github.io/StarDB/
+
 ---------------------------------
 
 An illustrated database about characters, planets and starships. 
