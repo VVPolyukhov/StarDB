@@ -4,7 +4,7 @@ An illustrated database about characters, planets and starships
 
 Demo - https://vvpolyukhov.github.io/StarDB/
 
----------------------------------
+-----
 
 **Stack:**
 
@@ -13,3 +13,11 @@ Demo - https://vvpolyukhov.github.io/StarDB/
 * React Router
 * Bootstrap
 * REST API - swapi.dev
+
+-----
+
+**Features:**
+
+* Structured and detailed information about characters, planets, and starships
+* Convenient interface 
+* API - swapi.dev
