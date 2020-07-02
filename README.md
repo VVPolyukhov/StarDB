@@ -11,6 +11,7 @@ Demo - https://vvpolyukhov.github.io/StarDB/
 * JavaScript ES6+
 * React
 * React Router
+* PropTypes
 * Bootstrap
 * REST API - swapi.dev
 
