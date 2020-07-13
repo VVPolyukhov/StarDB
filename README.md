@@ -10,6 +10,7 @@ Demo - https://vvpolyukhov.github.io/StarDB/
 
 * JavaScript ES6+
 * React
+* React Hooks
 * React Router
 * PropTypes
 * Bootstrap

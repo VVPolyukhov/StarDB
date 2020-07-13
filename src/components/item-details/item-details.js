@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './item-details.css';
 
@@ -15,67 +15,53 @@ export {
   Record
 };
 
-export default class ItemDetails extends Component {
+const ItemDetails = (props) => {
 
-  state = {
-    item: null,
-    image: null
-  };
+  const { itemId, getData, getImageUrl } = props
 
-  componentDidMount() {
-    this.updateItem();
-  }
+  const [item, setItem] = useState(null)
+  const [image, setImage] = useState(null)
 
-  componentDidUpdate(prevProps) {
-    if (this.props.itemId !== prevProps.itemId ||
-      this.props.getData !== prevProps.getData ||
-      this.props.getImageUrl !== prevProps.getImageUrl) {
-      this.updateItem();
-    }
-  }
-
-  updateItem() {
-    const { itemId, getData, getImageUrl } = this.props;
+  const updateItem = () => {
     if (!itemId) {
       return;
     }
 
     getData(itemId)
       .then((item) => {
-        this.setState({
-          item,
-          image: getImageUrl(item)
-        });
+        setItem(item)
+        setImage(getImageUrl(item))
       });
   }
 
-  render() {
-
-    const { item, image } = this.state;
-
-    if (!item) {
-      return <h4 className='text-center'>Select an item from the list</h4>;
-    }
-
-    const { name } = item;
-
-    return (
-      <div className="item-details card">
-        <img className="item-image"
-          src={image}
-          alt="item"/>
-
-        <div className="card-body">
-          <h4>{name}</h4>
-          <ul className="list-group list-group-flush">
-            {
-              React.Children.map(this.props.children, (child) => {
-                return React.cloneElement(child, { item });
-              })
-            }
-          </ul>
-        </div>
-      </div>
-    );
+  useEffect(() => {
+    updateItem()
+  }, [itemId, getData, getImageUrl])
+  
+  if (!item) {
+    return <h4 className='text-center'>Select an item from the list</h4>;
   }
+
+  const { name } = item;
+
+  return (
+    <div className="item-details card">
+      <img className="item-image"
+        src={image}
+        alt="item"/>
+
+      <div className="card-body">
+        <h4>{name}</h4>
+        <ul className="list-group list-group-flush">
+          {
+            React.Children.map(props.children, (child) => {
+              return React.cloneElement(child, { item });
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  );
 }
+
+export default ItemDetails
